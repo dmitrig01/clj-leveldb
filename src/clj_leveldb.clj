@@ -177,8 +177,9 @@
   (db- [_]
     db)
   (get- [_ k]
-    (let [k (bs/to-byte-array (key-encoder k))]
-      (val-decoder (.get db k))))
+    (let [k (bs/to-byte-array (key-encoder k))
+          v (.get db k)]
+      (when v (val-decoder v))))
   (put- [_ k v options]
     (let [k (bs/to-byte-array (key-encoder k))
           v (bs/to-byte-array (val-encoder v))]
