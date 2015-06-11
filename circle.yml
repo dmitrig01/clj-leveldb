@@ -13,12 +13,10 @@ dependencies:
 
 test:
   override:
-    - echo "HI! No tests here for now :-)"
+    - lein test
 
 deployment:
   production:
     branch: master
     commands:
-      - git clone https://github.com/dmitrig01/lein-deploy-uberjar.git
-      - echo "/home/ubuntu/clj-leveldb/lein-deploy-uberjar/src/" > .lein-classpath
-      - lein deploy-uberjar releases
+      - lein deploy releases

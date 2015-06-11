@@ -11,11 +11,11 @@
   :plugins [[codox "0.6.4"]]
   :codox {:writer codox-md.writer/write-docs
           :include [clj-leveldb]}
-  :deploy-repositories [["snapshots" {:url :env/DEPLOY_URL
+  :deploy-repositories [["snapshots" {:url :env/DEPLOY_SNAPSHOT_URL
                                       :sign-releases false
                                       :username :env/DEPLOY_USER
                                       :password :env/DEPLOY_PASSWORD}]
-                        ["releases" {:url :env/DEPLOY_URL
+                        ["releases" {:url :env/DEPLOY_RELEASE_URL
                                      :sign-releases false
                                      :username :env/DEPLOY_USER
                                      :password :env/DEPLOY_PASSWORD}]])
