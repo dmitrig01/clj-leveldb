@@ -1,0 +1,24 @@
+---
+machine:
+  java:
+    version: oraclejdk8
+
+dependencies:
+  cache_directories:
+    - "~/.lein"
+  pre:
+    - lein deps
+  override:
+    - lein compile
+
+test:
+  override:
+    - echo "HI! No tests here for now :-)"
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git clone https://github.com/dmitrig01/lein-deploy-uberjar.git
+      - echo "/home/ubuntu/clj-leveldb/lein-deploy-uberjar/src/" > .lein-classpath
+      - lein deploy-uberjar releases
